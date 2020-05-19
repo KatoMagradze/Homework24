@@ -28,7 +28,10 @@ class LyricsViewController: UIViewController {
     }
     
     func searchLyrics() {
-        let encodedURLString = "https://api.lyrics.ovh/v1/"+self.artistName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "/" + self.artistSong.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+        let artist = artistName.replacingOccurrences(of: "/", with: "")
+        
+        let encodedURLString = "https://api.lyrics.ovh/v1/" + artist.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "/" + self.artistSong.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
         let url = URL(string: encodedURLString)!
         
